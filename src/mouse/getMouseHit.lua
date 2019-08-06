@@ -5,7 +5,7 @@
 local t = require(script.Parent.Parent.lib.t)
 local getMouseUnitRay = require(script.Parent.getMouseUnitRay)
 
-local getMouseHitCheck = t.array(t.Instance)
+local getMouseHitCheck = t.optional(t.array(t.Instance))
 local function getMouseHit(ignoreList)
 	assert(getMouseHitCheck(ignoreList))
 
