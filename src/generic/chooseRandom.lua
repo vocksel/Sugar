@@ -7,11 +7,8 @@
 		print(item) -- 1/5 chance of getting any of them
 ]]
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
-local import = require(ReplicatedStorage.lib.import)
-
-local t = import("lib/t")
+local t = require(script.Parent.Parent.lib.t)
 
 local chooseRandomCheck = t.array(t.any)
 local function chooseRandom(list)
