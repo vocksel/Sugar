@@ -8,7 +8,15 @@
 
 local Players = game:GetService("Players")
 
+local t = require(script.Parent.Parent.lib.t)
+
+local fireExceptToCheck = t.tuple(
+	t.instanceOf("Player"),
+	t.instanceOf("RemoteEvent")
+)
 local function fireExceptTo(player, event, ...)
+	assert(fireExceptToCheck(player, event))
+
 	for _, other in pairs(Players:GetPlayers()) do
 		if other ~= player then
 			event:FireClient(other, ...)
