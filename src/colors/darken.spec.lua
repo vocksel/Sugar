@@ -1,6 +1,6 @@
 return function()
 	local isBrighter = require(script.Parent.isBrighter)
-	local darken = require(script.Parent.brighten)
+	local darken = require(script.Parent.darken)
 
 	local PERCENT = 10
 	local TEST_COLOR = Color3.fromRGB(200, 200, 200)
