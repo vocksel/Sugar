@@ -4,16 +4,16 @@
 
 local t = require(script.Parent.Parent.lib.t)
 
-local getPlayerFromId = require(script.Parent.getPlayerFromId)
+local getPlayerFromUserId = require(script.Parent.getPlayerFromUserId)
 
-local getCharacterFromIdCheck = t.string
-local function getCharacterFromId(userId)
-	assert(getCharacterFromIdCheck(userId))
+local getCharacterFromUserIdCheck = t.string
+local function getCharacterFromUserId(userId)
+	assert(getCharacterFromUserIdCheck(userId))
 
-	local player = getPlayerFromId(userId)
+	local player = getPlayerFromUserId(userId)
 	if player then
 		return player.Character
 	end
 end
 
-return getCharacterFromId
+return getCharacterFromUserId

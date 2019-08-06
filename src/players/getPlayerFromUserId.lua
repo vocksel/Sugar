@@ -2,9 +2,9 @@ local Players = game:GetService("Players")
 
 local t = require(script.Parent.Parent.lib.t)
 
-local getPlayerFromIdCheck = t.string
-local function getPlayerFromId(userId)
-	assert(getPlayerFromIdCheck(userId))
+local getPlayerFromUserCheck = t.string
+local function getPlayerFromUserId(userId)
+	assert(getPlayerFromUserCheck(userId))
 
 	for _, player in pairs(Players:GetPlayers()) do
 		if player.UserId == tonumber(userId) then
@@ -13,4 +13,4 @@ local function getPlayerFromId(userId)
 	end
 end
 
-return getPlayerFromId
+return getPlayerFromUserId

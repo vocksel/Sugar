@@ -1,17 +1,17 @@
 local Players = game:GetService("Players")
 
 local t = require(script.Parent.Parent.lib.t)
-local getPlayerId = require(script.Parent.getPlayerId)
+local getUserId = require(script.Parent.getUserId)
 
-local getCharacterFromIdCheck = t.instanceOf("Model")
-local function getIdFromCharacter(character)
-	assert(getCharacterFromIdCheck(character))
+local getCharacterFromUserIdCheck = t.instanceOf("Model")
+local function getUserIdFromCharacter(character)
+	assert(getCharacterFromUserIdCheck(character))
 
 	local player = Players:GetPlayerFromCharacter(character)
 
 	if player then
-		return getPlayerId(player)
+		return getUserId(player)
 	end
 end
 
-return getIdFromCharacter
+return getUserIdFromCharacter
