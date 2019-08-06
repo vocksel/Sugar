@@ -3,6 +3,24 @@
 
 	This is used so we get a consistent, alphabetical output for tables.
 	Typically dicctionary-like tables aren't sorted, so this fixes that.
+
+	Usage:
+
+		local object = {
+			delta = true,
+			alpha = true,
+			bravo = true,
+		}
+
+		local keys = getSortedKeys(object)
+
+		for _, key in pairs(keys) do
+			print(key)
+		end
+
+		-- "alpha"
+		-- "bravo"
+		-- "delta"
 ]]
 
 local t = require(script.Parent.Parent.lib.t)

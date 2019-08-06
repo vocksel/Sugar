@@ -1,9 +1,18 @@
 --[[
-    Converts a value into a nicely formatted string.
+	Converts a value into a nicely formatted string.
 
-    This is mostly used for tables as a way to inspect the contents. Inspect is
-    the next best thing, but is a bit slow and bogs things down if used in
-    succession. This function is a lot more lightweight.
+	This is mostly used for tables as a way to inspect the contents. inspect.lua
+	is the next best thing, but is a bit slow and bogs things down if used in
+	succession. This function is a lot more lightweight.
+
+	Usage:
+
+		local t = {
+			foo = true,
+			bar = false
+		}
+
+		print(pretty(t))
 ]]
 
 local t = require(script.Parent.Parent.lib.t)

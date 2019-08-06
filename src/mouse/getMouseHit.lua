@@ -1,5 +1,14 @@
 --[[
-	Gets the object hit in the mouse's path.
+	Returns the BasePart that the mouse hit.
+
+	Works the same as `Player:GetMouse().Hit` but allows you to pass in an ignore list, instead of relying on TargetFilter.
+
+	Usage:
+
+		local mouseHit = getMouseHit()
+
+		-- Or with an ignore list:
+		local mouseHit = getMouseHit({ LocalPlayer.Character, workspace.Foo})
 ]]
 
 local t = require(script.Parent.Parent.lib.t)
