@@ -20,9 +20,9 @@
 
 local t = require(script.Parent.Parent.lib.t)
 
-local newFolderCheck = t.tuple(t.optional(t.table), t.optional(t.table))
+local newCheck = t.tuple(t.optional(t.table), t.optional(t.table))
 local function new(props, children)
-	assert(newFolderCheck(props, children))
+	assert(newCheck(props, children))
 
 	local className = props and props.ClassName
 	local instance = Instance.new(className or "Folder")
