@@ -30,9 +30,9 @@ return {
 	},
 
 	players = {
-		getCharacterFromId = require(script.Parent.players.getCharacterFromId),
-		getIdFromCharacter = require(script.Parent.players.getIdFromCharacter),
-		getPlayerFromId = require(script.Parent.players.getPlayerFromId),
-		getPlayerId = require(script.Parent.players.getPlayerId),
+		getCharacterFromUserId = require(script.Parent.players.getCharacterFromUserId),
+		getUserIdFromCharacter = require(script.Parent.players.getUserIdFromCharacter),
+		getPlayerFromUserId = require(script.Parent.players.getPlayerFromUserId),
+		getPlayerUserId = require(script.Parent.players.getPlayerUserId),
 	},
 }
