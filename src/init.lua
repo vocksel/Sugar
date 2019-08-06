@@ -1,38 +1,34 @@
 return {
-	children = {
-		getNamedChildren = require(script.Parent.children.getNamedChildren)
-	},
-
 	colors = {
-		brighten = require(script.Parent.colors.brighten),
-		darken = require(script.Parent.colors.darken),
+		brighten = require(script.colors.brighten),
+		darken = require(script.colors.darken),
 	},
 
 	debug = {
-		pretty = require(script.Parent.debug.pretty)
+		pretty = require(script.debug.pretty)
 	},
 
 	generic = {
-		bind = require(script.Parent.generic.bind),
-		chooseRandom = require(script.Parent.generic.chooseRandom),
-		getSortedKeys = require(script.Parent.generic.getSortedKeys),
-		maybeCall = require(script.Parent.generic.maybeCall),
-		new = require(script.Parent.generic.new),
+		bind = require(script.generic.bind),
+		chooseRandom = require(script.generic.chooseRandom),
+		getSortedKeys = require(script.generic.getSortedKeys),
+		maybeCall = require(script.generic.maybeCall),
+		new = require(script.generic.new),
 	},
 
 	mouse = {
-		getMouseHit = require(script.Parent.mouse.getMouseHit),
-		getMouseUnitRay = require(script.Parent.mouse.getMouseUnitRay),
+		getMouseHit = require(script.mouse.getMouseHit),
+		getMouseUnitRay = require(script.mouse.getMouseUnitRay),
 	},
 
 	networking = {
-		fireExceptTo = require(script.Parent.networking.fireExceptTo)
+		fireExceptTo = require(script.networking.fireExceptTo)
 	},
 
 	players = {
-		getCharacterFromUserId = require(script.Parent.players.getCharacterFromUserId),
-		getUserIdFromCharacter = require(script.Parent.players.getUserIdFromCharacter),
-		getPlayerFromUserId = require(script.Parent.players.getPlayerFromUserId),
-		getPlayerUserId = require(script.Parent.players.getPlayerUserId),
+		getCharacterFromUserId = require(script.players.getCharacterFromUserId),
+		getPlayerFromUserId = require(script.players.getPlayerFromUserId),
+		getUserId = require(script.players.getUserId),
+		getUserIdFromCharacter = require(script.players.getUserIdFromCharacter),
 	},
 }
