@@ -14,6 +14,14 @@ return function()
 		expect(withProps.Name).to.equal("Sample")
 	end)
 
+	it("should allow the ClassName to be specified", function()
+		local instance = new({
+			ClassName = "Model"
+		})
+
+		expect(instance:IsA("Model")).to.equal(true)
+	end)
+
 	it("should optionally take a map of children", function()
 		local withChildren = new(nil, {
 			Part = Instance.new("Part"),

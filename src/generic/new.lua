@@ -9,10 +9,10 @@
 		local mockDataModel = new({
 			Name = "game"
 		}, {
-			ServerScriptService = newFolder({
+			ServerScriptService = new(nil, {
 				Script = Instance.new("Script")
 			}),
-			ReplicatedStorage = newFolder({
+			ReplicatedStorage = new(nil, {
 				Module = Instance.new("ModuleScript")
 			})
 		})
@@ -29,7 +29,9 @@ local function new(props, children)
 
 	if props then
 		for prop, value in pairs(props) do
-			instance[prop] = value
+			if prop ~= "ClassName" then
+				instance[prop] = value
+			end
 		end
 	end
 
