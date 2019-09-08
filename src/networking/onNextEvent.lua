@@ -12,11 +12,7 @@
 		end)
 ]]
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local import = require(ReplicatedStorage.lib.import)
-
-local t = import("lib/t")
+local t = require(script.Parent.Parent.lib.t)
 
 local onNextEventCheck = t.tuple(t.any, t.callback)
 local function onNextEvent(event, callback)
