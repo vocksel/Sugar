@@ -23,7 +23,7 @@ local Sugar = require(game.ReplicatedStorage.Sugar)
 
 Now explore the API:
 
-## Sugar.audio
+### Sugar.audio
 
 **`playRandomSound(sounds: Sound[])`**
 
@@ -55,7 +55,7 @@ local color = Color3.fromRGB(200, 200, 200)
 local darkerColor = darken(color, 20)
 ```
 
-## Sugar.characters
+### Sugar.characters
 
 **`clearAccessories(character: Model)`**
 
@@ -357,7 +357,7 @@ local character = player.Character
 local userId = getUserIdFromCharacter(character)
 ```
 
-## Sugar.timing
+### Sugar.timing
 
 **`async(callback: function): void`**
 
