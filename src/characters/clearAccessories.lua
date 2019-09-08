@@ -1,8 +1,12 @@
 --[[
 	Clears out all the accessories from a character.
 
-	This is used before we call loadAccessories() so that we only have the
-	accessories from the outfit.
+	This is useful when creating your own custom appearance code for characters,
+	where you need to remove all their accessories and start fresh.
+
+	Usage:
+
+		clearaAccessories(workspace.Player1)
 ]]
 
 local t = require(script.Parent.Parent.lib.t)

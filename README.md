@@ -23,6 +23,18 @@ local Sugar = require(game.ReplicatedStorage.Sugar)
 
 Now explore the API:
 
+## Sugar.audio
+
+**`playRandomSound(sounds: Sound[])`**
+
+Plays one of the given sounds at random.
+
+This is useful for things like dialog, where you can have many sounds for when a letter plays, so you can alternate between them instead of having one static sound.
+
+```lua
+playRandomSound({ 1, 2, 3, 4 })
+```
+
 ### Sugar.colors
 
 **`brighten(color: Color3, percent: integer): Color3`**
@@ -43,6 +55,78 @@ local color = Color3.fromRGB(200, 200, 200)
 local darkerColor = darken(color, 20)
 ```
 
+## Sugar.characters
+
+**`clearAccessories(character: Model)`**
+
+Clears out all the accessories from a character.
+
+This is useful when creating your own custom appearance code for characters,
+where you need to remove all their accessories and start fresh.
+
+```lua
+clearaAccessories(workspace.Player1)
+```
+
+**`combineDescriptions(base: HumanoidDescription, override: HumanoidDescription): HumanoidDescription`**
+
+Combines two HumanoidDescriptions into one.
+
+This allows you to easily mix and match a base HumanoidDescription with a predefined HumanoidDescription, so that players can still look like themselves with some alterations.
+
+```lua
+local base = Instance.new("HumanoidDescription")
+base.HairAccessory = "1"
+base.NeckAccessory = "3"
+
+local override = Instance.new("HumanoidDescription")
+override.HairAccessory = "2"
+
+local combined = combineDescriptions(base, override)
+
+print(combined.HairAccessory) -- 2
+print(combined.NeckAccessory) -- 3
+```
+
+**`isAirborne(state: HumanoidStateType): boolean`**
+
+Checks if a character is currently airborne by their HumanoidStateType.
+
+```lua
+isAirborne(character.Humanoid:GetState())
+```
+
+**`isAlive(character: Model): boolean`**
+
+Checks if the given character is still alive.
+
+This is useful to check various things about the character, such as if they're still in the DatModel, as well as if the Humanoid is alive.
+
+This will check that:
+
+- The `character` is non-nil
+- `character` is a descendant of the workspace.
+- The Humanoid exists
+- The Humanoid's health is greater than 0
+
+```lua
+if isAlive(player.Character) then
+	print("still living!")
+end
+```
+
+**`isGrounded(state: HumanoidStateType): boolean`**
+
+Checks if a character is currently on the ground by their HumanoidStateType.
+
+```lua
+isGrounded(character.Humanoid:GetState())
+```
+
+**`loadAccessories(humanoid: Humanoid, accessories: Array<Accessory>): void`**
+
+Loads all the given accessories onto
+
 ### Sugar.debug
 
 **`pretty(value: any): string`**
@@ -59,6 +143,25 @@ local t = {
 
 print(pretty(t))
 ```
+
+**`visualizeRadius(size: number, model: Model, color: Color3, yOffset?: number)`**
+
+Allows for easy visualization of a radius.
+
+The `model` must have a PrimaryPart. This is needed for bounding box calculations.
+
+This is useful for determining how far away a player needs to be from an NPC to interact, or how far away the player can be before an enemy will start aggroing.
+
+```lua
+-- Places a red, 20 stud radius at the bottom of an NPC
+visualizeRadius(20, npc, Color3.fromRGB(255, 0, 0))
+
+-- Using more than one radius. The last value sets how far up the radius is
+-- pushed so they don't overlap
+visualizeRadius(20, npc, Color3.fromRGB(255, 0, 0), 0.2)
+visualizeRadius(30, npc, Color3.fromRGB(255, 206, 73), 0.1)
+```
+
 ### Sugar.generic
 
 **`bind(obj: table, method: Function): Function`**
@@ -200,6 +303,19 @@ changeColorEvent.OnServerEvent:Connect(function(player, color)
 end)
 ```
 
+**`onNextEvent(event: RBXScriptSignal, callback: function): void`**
+
+Connects to an event for the next time it's triggered.
+
+A common idiom is to keep a reference to the connection around and disconnect it inside the listener. This function abstracts that.
+
+```lua
+-- This will only fire for the next player to join the game
+onNextEvent(game.Players.PlayerAdded, function(player)
+	print(player, "is the lucky player!")
+end)
+```
+
 ### Sugar.players
 
 All UserIds are converted to strings as these are serializable and typically set as keys in tables. Using integers is not great in this case, as they are considered array indices. All functions relating to players in this library revolve around strings for UserIds because of this.
@@ -239,6 +355,37 @@ Get a player's stringified UserId from their character.
 local player = game.Players.LocalPlayer
 local character = player.Character
 local userId = getUserIdFromCharacter(character)
+```
+
+## Sugar.timing
+
+**`async(callback: function): void`**
+
+Runs a function asynchronously in its own thread.
+
+This is similar to `spawn()`, but executes immediately instead of waiting an arbitrary amount of time before executing the wrapped code.
+
+This prints `a`, then one second later prints `b`:
+
+```lua
+async(function()
+    wait(1)
+    print("b")
+end)
+print(a)
+```
+
+**`yield(waitTime: number): void`**
+
+Yields the current thread for the given amount of time.
+
+This is a better alternative to `wait()`, as the amount of time it waits is deterministic. This uses Heartbeat for consistent timing.
+
+```lua
+yield(10)
+print("Hello")
+yield(10)
+print("World")
 ```
 
 ## Development

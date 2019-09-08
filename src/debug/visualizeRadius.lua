@@ -1,16 +1,20 @@
 --[[
 	Allows for easy visualization of a radius.
 
+	The `model` must have a PrimaryPart. This is needed for bounding box
+	calculations.
+
 	This is useful for determining how far away a player needs to be from an NPC
 	to interact, or how far away the player can be before an enemy will start
 	aggroing.
 
 	Usage:
 
+		-- Places a red, 20 stud radius at the bottom of an NPC
 		visualizeRadius(20, npc, Color3.fromRGB(255, 0, 0))
 
-		-- Using two radii:
-		-- The last value sets how far up the radius is pushed
+		-- Using more than one radius. The last value sets how far up the radius
+		-- is pushed so they don't overlap
 		visualizeRadius(20, npc, Color3.fromRGB(255, 0, 0), 0.2)
 		visualizeRadius(30, npc, Color3.fromRGB(255, 206, 73), 0.1)
 ]]

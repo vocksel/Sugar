@@ -1,3 +1,25 @@
+--[[
+	Combines two HumanoidDescriptions into one.
+
+	This allows you to easily mix and match a base HumanoidDescription with a
+	predefined HumanoidDescription, so that players can still look like
+	themselves with some alterations.
+
+	Usage:
+
+		local base = Instance.new("HumanoidDescription")
+		base.HairAccessory = 1
+		base.NeckAccessory = 3
+
+		local override = Instance.new("HumanoidDescription")
+		override.HairAccessory = 2
+
+		local combined = combineDescriptions(base, override)
+
+		print(combined.HairAccessory) -- 2
+		print(combined.NeckAccessory) -- 3
+]]
+
 local t = require(script.Parent.Parent.lib.t)
 
 local HUMANOID_DESCRIPTION_PROPS = {
