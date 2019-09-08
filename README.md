@@ -199,6 +199,17 @@ local item = chooseRandom({ 1, 2, 3, 4, 5 })
 print(item) -- 1/5 chance of getting any of them
 ```
 
+**`debounce(waitTime: number, callback: function): void`**
+
+Standard debounce function which prevents input for the given amount of time.
+
+```lua
+-- This will print "Touched" every two seconds when the part is touched.
+workspace.Part.Touched:Connect(debounce(2, function()
+	print("Touched")
+end))
+```
+
 **`getSortedKeys(object: table): Array<any>`**
 
 Returns an array of keys from the given object, sorted alphabetically.
