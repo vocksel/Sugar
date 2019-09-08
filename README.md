@@ -125,7 +125,14 @@ isGrounded(character.Humanoid:GetState())
 
 **`loadAccessories(humanoid: Humanoid, accessories: Array<Accessory>): void`**
 
-Loads all the given accessories onto
+Loads all the given accessories onto the character of the given Humanoid.
+
+```lua
+local character = Players.LocalPlayer.Character
+local humanoid = character.Humanoid
+
+loadAccessories(humanoid, { Instance.new("Accessory"), Instance.new("Accessory") })
+```
 
 ### Sugar.debug
 
