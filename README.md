@@ -214,7 +214,7 @@ end))
 
 Returns an array of keys from the given object, sorted alphabetically.
 
-This is used so we get a consistent, alphabetical output for tables. Typically dicctionary-like tables aren't sorted, so this fixes that.
+This is used so we get a consistent, alphabetical output for tables. Typically dictionary-like tables aren't sorted, so this fixes that.
 
 ```lua
 local object = {
@@ -400,9 +400,10 @@ Yields the current thread for the given amount of time.
 This is a better alternative to `wait()`, as the amount of time it waits is deterministic. This uses Heartbeat for consistent timing.
 
 ```lua
-yield(10)
+-- Waits for one second, prints "Hello", waits another second and prints "World"
+yield(1)
 print("Hello")
-yield(10)
+yield(1)
 print("World")
 ```
 
@@ -419,5 +420,5 @@ Open the newly generated place file and start the Rojo plugin.
 
 From here you can modify anything under `src/` and your changes will be synced in.
 
-When you're ready to test, simply press F5 to play the.
+When you're ready to test, simply press F5 to play the game.
 
