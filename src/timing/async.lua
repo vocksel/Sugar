@@ -11,11 +11,7 @@
 		end)
 ]]
 
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-
-local import = require(ReplicatedStorage.lib.import)
-
-local t = import("lib/t")
+local t = require(script.Parent.Parent.lib.t)
 
 local asyncCheck = t.callback
 local function async(callback)
