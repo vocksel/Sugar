@@ -25,7 +25,7 @@ Now explore the API:
 
 ### Sugar.audio
 
-**`playRandomSound(sounds: Sound[])`**
+**`playRandomSound(sounds: Array<Sound>)`**
 
 Plays one of the given sounds at random.
 
@@ -183,7 +183,7 @@ local method = bind(obj, obj.foo)
 print(method()) -- "Example"
 ```
 
-**`chooseRandom(list: array): any`**
+**`chooseRandom(list: Array<any>): any`**
 
 Returns a random item from the list.
 
@@ -192,7 +192,7 @@ local item = chooseRandom({ 1, 2, 3, 4, 5 })
 print(item) -- 1/5 chance of getting any of them
 ```
 
-**`getSortedKeys(object: table): array`**
+**`getSortedKeys(object: table): Array<any>`**
 
 Returns an array of keys from the given object, sorted alphabetically.
 
