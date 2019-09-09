@@ -33,12 +33,13 @@ local function visualizeRadius(radius, model, color, yOffset)
 
 	yOffset = yOffset or 0
 
+	local diameter = radius * 2
 	local primary = model.PrimaryPart
 	local cframe, size = model:GetBoundingBox()
 	local position = cframe.p
 
-	local bottom = position.Y-(size.Y/2)
-	local bottomPos = Vector3.new(position.X, bottom+yOffset, position.Z)
+	local bottom = position.Y - (size.Y /2)
+	local bottomPos = Vector3.new(position.X, bottom + yOffset, position.Z)
 
 	local part = Instance.new("Part")
 	part.Color = color
@@ -51,7 +52,7 @@ local function visualizeRadius(radius, model, color, yOffset)
 	part.CanCollide = false
 
 	local mesh = Instance.new("CylinderMesh")
-	mesh.Scale = Vector3.new(radius, 1, radius)
+	mesh.Scale = Vector3.new(diameter, 1, diameter)
 	mesh.Parent = part
 
 	local weld = Instance.new("WeldConstraint")
